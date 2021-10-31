@@ -20,17 +20,18 @@ header > h1{
     text-align: center;
 }
 
+/*---MAIN--*/
 main{
     grid-area: main;
 }
 
-.container, .result {
+.container {
     margin: 0 auto;
     max-width: 960px;
     width: 80%;
   }
 
-.querty_text{
+.query_text{
     display:inline-block;
     width: 75%;
     height: 22px;
@@ -61,8 +62,23 @@ main{
     background-color: #c62a2a;
 }
 
+/*---RESULTS TEXT---*/
+
 .result > h2{
-    color: #283042;
+    color: #293143;
 }
 
+.h3-0{
+    margin-bottom: 0px;
+}
+.h4-0{
+    margin-top: 0px;
+}
 
+h3,h4{
+    text-transform: uppercase;
+}
+
+.not-found{
+    color:#c93331;
+}

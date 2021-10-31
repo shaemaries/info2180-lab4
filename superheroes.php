@@ -65,8 +65,35 @@ $superheroes = [
 
 ?>
 
-<ul>
-<?php foreach ($superheroes as $superhero): ?>
-  <li><?= $superhero['alias']; ?></li>
-<?php endforeach; ?>
-</ul>
+<?php
+filter_input(INPUT_GET,'query',FILTER_SANITIZE_STRING);
+$query_text=$_REQUEST['query'];
+$found=FALSE;
+$foundsup=[];
+?>
+
+<?php if ($query_text == ""): ?>
+  <ul>
+  <?php foreach ($superheroes as $superhero): ?>
+      <li><?= $superhero['alias']; ?></li>
+  <?php endforeach; ?>
+  </ul>
+<?php else: ?>
+  <?php foreach ($superheroes as $superhero): ?>
+      <?php  
+        if ($superhero['name'] == $query_text or $superhero['alias']== $query_text) {
+          $found = TRUE;
+          $foundsup = $superhero;
+        }
+      ?>
+  <?php endforeach; ?>
+<?php endif; ?>
+
+<?php if ($found): ?>
+  <h3 class="h3-0"><?= $foundsup['alias']; ?></h3>
+  <h4 class="h4-0"><?= "A.K.A {$foundsup['name']}"; ?></h4>
+  <p><?= $foundsup['biography']; ?></p>
+<?php elseif ($found == FALSE and $query_text !== ""): ?>
+  <h4 class="not-found">SUPERHERO NOT FOUND</h4>
+<?php endif; ?>
+

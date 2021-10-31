@@ -5,12 +5,16 @@ window.onload = function(){
     btn.addEventListener('click',getSuperheroes);
 }
 
-function getSuperheroes(){
-    fetch('http://localhost:80/info2180-lab4/superheroes.php')
+function getSuperheroes(event){
+    event.preventDefault()
+    var query_text= document.querySelector(".query_text").value
+    var params = { query: `${query_text}` }
+	var urlParams = new URLSearchParams(Object.entries(params));
+    
+    fetch('./superheroes.php?'+ urlParams)
     .then(response =>response.text())
-    .then(data => alert(data))
-    .catch(error => console.log(error)) 
-
+    .then(data => document.querySelector('.result').innerHTML = data)
+    .catch(error => console.log(error))
 }
 
 
