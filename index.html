@@ -3,22 +3,27 @@
 <head>
     <meta charset="utf-8">
     <title>INFO2180 Lab 4</title>
-    <link rel="stylesheet" href="styles.css" media="screen">
-    <script src="app.js"></script>
+	<link rel="stylesheet" href="styles.css">
+	<script src="app.js"></script>
 </head>
 <body>
     <header>
-        <h1>Avengers Character Search</h1>
+        <h1>AVENGERS CHARACTER SEARCH</h1>
     </header>
     <main>
         <div class="container">
-            <h3>Search by Full Name and Alias</h3>
-            <form action="superheroes.php" method="GET">
-                <input type="text" name="query" class="querty text" placeholder="e.g. Captain America or Steve Rogers ">
+            <div class="form-search">
+                <p>Search by Full Name and Alias</p>
+                <form action="superheroes.php" method="GET">
+                    <input type="text" name="query" class="querty_text" placeholder="e.g. Captain America or Steve Rogers ">
+                    <button type="search" class="btn btn-primary">Search</button>
+                </form>
             </div>
-            </form>
         </div>
-        <button type="search" class="btn">Search</button>
+        <div class="result">
+            <h2>RESULT</h2>
+            <hr>   
+        </div>
     </main>
 
 </body>
